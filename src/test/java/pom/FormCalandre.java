@@ -19,11 +19,36 @@ public class FormCalandre {
 
 
 
-    public static By formsbtn;
+
+    public static By formsbtn,patriceForm;
+    public static  By nametextpatrice;
+    public static  By last_text_patrice,mail_Patrice;
+    public static  By cocherbtn,numbers,dateOfBrith;
+    public static By month,year,days;
+    public static By subjct, hobiese, Adress_current ;
+    public static By selectState, selectCitys;
+    public static By close,subBtns;
 
     static {
         try {
            formsbtn =By.xpath(Utility.getLocators("formsbtn"));
+           patriceForm=By.xpath(Utility.getLocators("praticeForms"));
+           nametextpatrice=By.xpath(Utility.getLocators("namepracticetext"));
+           last_text_patrice=By.xpath(Utility.getLocators("lasttextpractise"));
+          mail_Patrice =By.xpath(Utility.getLocators("mailpractise"));
+          cocherbtn=By.xpath(Utility.getLocators("cochepractise"));
+          numbers=By.xpath(Utility.getLocators("textpractise"));
+          dateOfBrith=By.id(Utility.getLocators("dateofbrith"));
+          month=By.xpath(Utility.getLocators("dateofbirths"));
+          year=By.xpath("//select[@class='react-datepicker__year-select']");
+          days=By.xpath("//div[contains(@class,'react-datepicker__day') and text()='12']");
+          subjct=By.xpath("//input[@id='subjectsInput']");
+          hobiese=By.xpath("//input[@id='hobbies-checkbox-2']");
+          Adress_current=By.xpath("//textarea['currentAddress']");
+         selectState=By.xpath("//input[@id='react-select-3-input']");
+         selectCitys=By.xpath("//input[@id='react-select-4-input']");
+         close=By.xpath("//button[@id='closeLargeModal']");
+         subBtns=By.xpath("//button[@id='submit']");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -40,65 +65,66 @@ public class FormCalandre {
         Utility.BtnDecatchJavaScript(driver,formbtn);
     }
     public static void formPatrice(WebDriver driver) throws IOException {
-        patriceFrom = driver.findElement(By.xpath(Utility.getLocators("praticeForms")));
+        patriceFrom = driver.findElement(patriceForm);
         Utility.BtnDecatchJavaScript(driver, patriceFrom);
 
     }
     public static void formPagePractise(WebDriver driver, String name, String lastname, String email, String number, String months) throws IOException {
-        NameTextPractise= driver.findElement(By.xpath(Utility.getLocators("namepracticetext")));
+        NameTextPractise= driver.findElement(nametextpatrice);
         NameTextPractise.sendKeys(name);
 
-        LastTextPractise= driver.findElement(By.xpath(Utility.getLocators("lasttextpractise")));
+        LastTextPractise= driver.findElement(last_text_patrice);
         LastTextPractise.sendKeys(lastname);
 
 
-        EmailPractise= driver.findElement(By.xpath(Utility.getLocators("mailpractise")));
+        EmailPractise= driver.findElement(mail_Patrice);
         EmailPractise.sendKeys(email);
 
-        cochebtn=driver.findElement(By.xpath(Utility.getLocators("cochepractise")));
+        cochebtn=driver.findElement(cocherbtn);
         Utility.BtnDecatchJavaScript(driver,cochebtn);
 
 
-        numberTextPractise= driver.findElement(By.xpath(Utility.getLocators("textpractise")));
+        numberTextPractise= driver.findElement(numbers);
         numberTextPractise.sendKeys(number);
 
 
-        dateofbreth=driver.findElement(By.id(Utility.getLocators("dateofbrith")));
-        dateofbreth.click();
-        monthSelects=driver.findElement(By.xpath(Utility.getLocators("dateofbirths")));
+        dateofbreth=driver.findElement(dateOfBrith);
+        Utility.BtnDecatchJavaScript(driver,dateofbreth);
+
+        monthSelects=driver.findElement(month);
         monthSelects.sendKeys(months);
 
-        yearsSelects=driver.findElement(By.xpath("//select[@class='react-datepicker__year-select']"));
+        yearsSelects=driver.findElement(year);
         yearsSelects.sendKeys("1902");
 
-        day = driver.findElement(By.xpath("//div[contains(@class,'react-datepicker__day') and text()='12']"));
+        day = driver.findElement(days);
         day.click();
 
 
-        subj= driver.findElement(By.xpath("//input[@id='subjectsInput']"));
+        subj= driver.findElement(subjct);
         subj.sendKeys("Maths");
         subj.sendKeys(Keys.ENTER);
 
-        hobies=driver.findElement(By.xpath("//input[@id='hobbies-checkbox-2']"));
+        hobies=driver.findElement(hobiese);
         Utility.BtnDecatchJavaScript(driver,hobies);
 
 
 
-        adresscurrants= driver.findElement(By.xpath("//textarea['currentAddress']"));
+        adresscurrants= driver.findElement(Adress_current);
         adresscurrants.sendKeys("4 rue d'arnouville ");
 
-        selectStat=driver.findElement(By.xpath("//input[@id='react-select-3-input']"));
+        selectStat=driver.findElement(selectState);
         selectStat.sendKeys("NCR");
         selectStat.sendKeys(Keys.ENTER);
 
-        selectCity=driver.findElement(By.xpath("//input[@id='react-select-4-input']"));
+        selectCity=driver.findElement(selectCitys);
         selectCity.sendKeys("Noida");
         selectCity.sendKeys(Keys.ENTER);
 
-        subBtn=driver.findElement(By.xpath("//button[@id='submit']"));
+        subBtn=driver.findElement(subBtns);
         Utility.BtnDecatchJavaScript(driver,subBtn);
 
-        closeLargeModal=driver.findElement(By.xpath("//button[@id='closeLargeModal']"));
+        closeLargeModal=driver.findElement(close);
         Utility.BtnDecatchJavaScript(driver, closeLargeModal);
 
 

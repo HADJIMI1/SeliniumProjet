@@ -1,0 +1,40 @@
+package utilityData;
+
+import org.app.utility.Utility;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class DataUtility {
+
+    public static String getData(String keys) throws IOException {
+
+
+        try {
+            Properties properties = new Properties();
+
+            InputStream file = DataUtility.class.getClassLoader().getResourceAsStream("Data.properties");
+
+            properties.load(file);
+
+            return properties.getProperty(keys);
+        }   catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+}

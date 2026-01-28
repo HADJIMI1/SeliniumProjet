@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utilityData.DataUtility;
 
 import java.io.IOException;
 
@@ -48,6 +49,8 @@ public class HomePage {
     }
 
     public static void pageHome(WebDriver driver) throws IOException {
+        driver.manage().window().maximize();
+
         driver.get(Utility.getLocators("url"));
 
     }
@@ -66,18 +69,18 @@ public class HomePage {
 
 
 
-    public static void formPageElement(WebDriver driver,String name,String email, String adress, String permanentAdress ){
+    public static void formPageElement(WebDriver driver) throws IOException {
         NameTextBox=driver.findElement(nameTextBox);
-        NameTextBox.sendKeys(name);
+        NameTextBox.sendKeys(DataUtility.getData("nom"));
 
         EmailTextBox=driver.findElement(emailUser);
-        EmailTextBox.sendKeys(email);
+        EmailTextBox.sendKeys(DataUtility.getData("email"));
 
         AdressTextBox=driver.findElement(currantadresse);
-        AdressTextBox.sendKeys(adress);
+        AdressTextBox.sendKeys(DataUtility.getData("adress"));
 
         permanentAdressTextBox=driver.findElement(permanentadress);
-        permanentAdressTextBox.sendKeys(permanentAdress);
+        permanentAdressTextBox.sendKeys(DataUtility.getData("permanentAdress"));
 
         btnSubTextBox=driver.findElement(subBtn);
         Utility.BtnDecatchJavaScript(driver, btnSubTextBox);
