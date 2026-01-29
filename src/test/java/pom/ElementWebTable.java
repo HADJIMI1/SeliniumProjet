@@ -80,7 +80,9 @@ public class ElementWebTable {
         salarychamp= driver.findElement(salarychamps);
         salarychamp.sendKeys(DataUtility.getData("salaire"));
 
+
         deptchamp= driver.findElement(deptchamps);
+
         deptchamp.sendKeys(DataUtility.getData("dep"));
     }
 

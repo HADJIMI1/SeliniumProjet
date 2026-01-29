@@ -28,11 +28,11 @@ public class Utility {
     }
 
 
-    public static  void BtnDecatchJavaScript(WebDriver driver, WebElement btnClick){
-        JavascriptExecutor executor= (JavascriptExecutor)driver;
+    public static void BtnDecatchJavaScript(WebDriver driver, WebElement btnClick) {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
 
 
-        executor.executeScript("arguments[0].click()",btnClick);
+        executor.executeScript("arguments[0].click()", btnClick);
     }
 
 

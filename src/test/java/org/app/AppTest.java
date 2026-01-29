@@ -32,7 +32,7 @@ public class AppTest{
 
         FormCalandre.formPageCalandre(driver);
         FormCalandre.formPatrice(driver);
-        FormCalandre.formPagePractise(driver,"idir","leffad","idir.lef@gmail.com", "06253874252", "May");
+        FormCalandre.formPagePractise(driver);
 
 
         WighetPage.elementWighet(driver);
@@ -77,7 +77,7 @@ public class AppTest{
 
         InteractionPage.setBtn(driver);
         InteractionPage.caseText(driver);
-        DatePicker.datepick(driver);
+        DatePicker.datePick(driver);
 
 
 

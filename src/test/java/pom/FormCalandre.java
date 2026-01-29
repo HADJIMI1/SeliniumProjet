@@ -5,11 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+import utilityData.DataUtility;
 
 import java.io.IOException;
-import java.security.Key;
-import java.security.KeyStore;
 
 public class FormCalandre {
     public static WebElement formbtn, patriceFrom,NameTextPractise, LastTextPractise, dateofbreth, selectCity;
@@ -69,30 +67,30 @@ public class FormCalandre {
         Utility.BtnDecatchJavaScript(driver, patriceFrom);
 
     }
-    public static void formPagePractise(WebDriver driver, String name, String lastname, String email, String number, String months) throws IOException {
+    public static void formPagePractise(WebDriver driver) throws IOException {
         NameTextPractise= driver.findElement(nametextpatrice);
-        NameTextPractise.sendKeys(name);
+        NameTextPractise.sendKeys(DataUtility.getData("nom"));
 
         LastTextPractise= driver.findElement(last_text_patrice);
-        LastTextPractise.sendKeys(lastname);
+        LastTextPractise.sendKeys(DataUtility.getData("name"));
 
 
         EmailPractise= driver.findElement(mail_Patrice);
-        EmailPractise.sendKeys(email);
+        EmailPractise.sendKeys(DataUtility.getData("email"));
 
         cochebtn=driver.findElement(cocherbtn);
         Utility.BtnDecatchJavaScript(driver,cochebtn);
 
 
         numberTextPractise= driver.findElement(numbers);
-        numberTextPractise.sendKeys(number);
+        numberTextPractise.sendKeys(DataUtility.getData("number"));
 
 
         dateofbreth=driver.findElement(dateOfBrith);
         Utility.BtnDecatchJavaScript(driver,dateofbreth);
 
         monthSelects=driver.findElement(month);
-        monthSelects.sendKeys(months);
+        monthSelects.sendKeys(DataUtility.getData("month"));
 
         yearsSelects=driver.findElement(year);
         yearsSelects.sendKeys("1902");
