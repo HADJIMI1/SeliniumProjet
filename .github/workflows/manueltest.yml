@@ -30,4 +30,4 @@ jobs:
             ${{ runner.os }}-m2
 
       - name: Run TestNG tests
-        run: ./mvnw clean test "-Dsurefire.suiteXmlFiles=testNgParalelTread.xml"
+        run: ./mvnw clean test -Dsurefire.suiteXmlFiles=testNgParalelTread.xml
