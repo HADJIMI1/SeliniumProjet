@@ -21,8 +21,13 @@ jobs:
       - name: Install Chrome
         uses: browser-actions/setup-chrome@v1
 
-      - name: Make mvnw executable
-        run: chmod +x mvnw
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2
 
       - name: Run TestNG tests
         run: ./mvnw clean test "-Dsurefire.suiteXmlFiles=testNgParalelTread.xml"
