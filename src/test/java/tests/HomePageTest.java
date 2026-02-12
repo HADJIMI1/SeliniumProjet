@@ -11,33 +11,33 @@ import java.io.IOException;
 
 public class HomePageTest extends BaseTest{
 
-    @BeforeTest
-    public void afficheTextConsol(){
-        System.out.println("demmarer le test");
-    }
-
 
 
     @Test(priority = 1)
+    public void run() throws IOException {
+        HomePage.pageHome(driverInstance);
+    }
+
+
+    @Test(priority = 2)
     public void elementBtn(){
-        HomePage.elementBtns(driver);
+        HomePage.elementBtns(driverInstance);
     }
 
-    @Test(priority = 2,dependsOnMethods = "elementBtn")
+    @Test(priority = 3,dependsOnMethods = "elementBtn")
     public void textBox() throws IOException{
-        HomePage.textBoxs(driver);
+        HomePage.textBoxs(driverInstance);
     }
 
-    @Test(priority = 3,dependsOnMethods = "textBox")
+    @Test(priority = 4,dependsOnMethods = "textBox")
     public void formPageElements() throws IOException {
-        HomePage.formPageElement(driver);
+        HomePage.formPageElement(driverInstance);
     }
 
 
 
 @AfterTest
     public void closePage(){
-        driver.quit();
         System.out.println("merci pour le test");
 }
 

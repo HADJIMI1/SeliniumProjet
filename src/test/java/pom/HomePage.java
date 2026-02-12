@@ -1,11 +1,11 @@
 package pom;
 
+import Data.DataUtility;
 import org.app.utility.Utility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utilityData.DataUtility;
 
 import java.io.IOException;
 
@@ -71,15 +71,16 @@ public class HomePage {
 
     public static void formPageElement(WebDriver driver) throws IOException {
         NameTextBox=driver.findElement(nameTextBox);
-        NameTextBox.sendKeys(DataUtility.getData("nom"));
+        NameTextBox.sendKeys(DataUtility.getData("name"));
 
         EmailTextBox=driver.findElement(emailUser);
         EmailTextBox.sendKeys(DataUtility.getData("email"));
 
         AdressTextBox=driver.findElement(currantadresse);
-        AdressTextBox.sendKeys(DataUtility.getData("adress"));
+        AdressTextBox.sendKeys(DataUtility.getData("Adress"));
 
         permanentAdressTextBox=driver.findElement(permanentadress);
+
         permanentAdressTextBox.sendKeys(DataUtility.getData("permanentAdress"));
 
         btnSubTextBox=driver.findElement(subBtn);

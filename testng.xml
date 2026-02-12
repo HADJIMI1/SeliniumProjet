@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+
+
+
+<suite name="DemoQATests"  parallel="tests" thread-count="3">
+    <test name="HomePagetest Chrome" parallel="classes">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.HomePageTest"/>
+            <class name="tests.FromCalandreTest"/>
+            <class name="tests.InteractionPageTest"/>
+
+
+
+        </classes>
+    </test>
+
+    <test name="CalandrePageTest">
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="tests.FromCalandreTest"/>
+        </classes>
+    </test>
+
+
+
+    <test name="WighetpageTest">
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="tests.InteractionPageTest"/>
+        </classes>
+    </test>
+
+
+    <test name="InteractionPage">
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="tests.WigthetPageTest"/>
+        </classes>
+    </test>
+
+</suite>
+
+
+
+
+
+
+
+

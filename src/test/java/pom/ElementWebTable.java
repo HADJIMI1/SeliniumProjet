@@ -1,10 +1,10 @@
 package pom;
 
+import Data.DataUtility;
 import org.app.utility.Utility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import utilityData.DataUtility;
 
 import java.io.IOException;
 
@@ -66,19 +66,19 @@ public class ElementWebTable {
 
     public static void namearea(WebDriver driver) throws IOException {
         namechamp= driver.findElement(namechamps);
-        namechamp.sendKeys(DataUtility.getData("name"));
+        namechamp.sendKeys(DataUtility.getData("nam"));
 
         lastchamp= driver.findElement(lastchamps);
         lastchamp.sendKeys(DataUtility.getData("last"));
 
         mailchamp= driver.findElement(mailchamps);
-        mailchamp.sendKeys(DataUtility.getData("mail"));
+        mailchamp.sendKeys(DataUtility.getData("mails"));
 
         agechamp= driver.findElement(agechamps);
         agechamp.sendKeys(DataUtility.getData("age"));
 
         salarychamp= driver.findElement(salarychamps);
-        salarychamp.sendKeys(DataUtility.getData("salaire"));
+        salarychamp.sendKeys(DataUtility.getData("salary"));
 
 
         deptchamp= driver.findElement(deptchamps);

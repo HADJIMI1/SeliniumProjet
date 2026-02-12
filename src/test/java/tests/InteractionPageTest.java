@@ -2,44 +2,53 @@ package tests;
 
 import org.testng.annotations.Test;
 import pom.FormCalandre;
+import pom.HomePage;
 import pom.InteractionPage;
+
+import java.io.IOException;
 
 public class InteractionPageTest extends BaseTest{
 
     @Test(priority = 1)
-    public void interactionBtns() {
-
-        InteractionPage.interactionBtn(driver);
+    public void runspage() throws IOException {
+        HomePage.pageHome(driverInstance);
 
     }
-    @Test(priority = 2,dependsOnMethods ="interactionBtns" )
+
+    @Test(priority = 2)
+    public void interactionBtns() throws InterruptedException {
+
+        InteractionPage.interactionBtn(driverInstance);
+
+    }
+    @Test(priority = 3,dependsOnMethods ="interactionBtns" )
     public void selectableBtns() {
 
-        InteractionPage.selectableBtn(driver);
+        InteractionPage.selectableBtn(driverInstance);
 
     }
-    @Test(priority = 3,dependsOnMethods = "selectableBtns")
+    @Test(priority = 4,dependsOnMethods = "selectableBtns")
     public void gridBtns() {
 
-        InteractionPage.gridBtn(driver);
+        InteractionPage.gridBtn(driverInstance);
 
     }
-    @Test(priority = 4, dependsOnMethods = "gridBtns")
+    @Test(priority = 5, dependsOnMethods = "gridBtns")
     public void OneGrids() {
 
-        InteractionPage.OneGrid(driver);
+        InteractionPage.OneGrid(driverInstance);
 
     }
-    @Test(priority = 5, dependsOnMethods = "OneGrids")
+    @Test(priority = 6, dependsOnMethods = "OneGrids")
     public void setBtns() {
 
-        InteractionPage.setBtn(driver);
+        InteractionPage.setBtn(driverInstance);
 
     }
-    @Test(priority = 4, dependsOnMethods = "setBtns")
+    @Test(priority = 7, dependsOnMethods = "setBtns")
     public void caseTexts() {
 
-        InteractionPage.caseText(driver);
+        InteractionPage.caseText(driverInstance);
 
     }
 

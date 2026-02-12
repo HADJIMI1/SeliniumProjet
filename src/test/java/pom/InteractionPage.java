@@ -10,7 +10,7 @@ public class InteractionPage {
 public static WebElement interactionsBtn, gridClick, oneGridBtn,oneGridBtn1,oneGridBtn2;
 public static WebElement set, caseTexts;
 
-public static void  interactionBtn(WebDriver driver){
+public static void  interactionBtn(WebDriver driver)  {
     interactionsBtn= driver.findElement(By.xpath("//*[contains(text(),'Interactions')]"));
     Utility.BtnDecatchJavaScript(driver,interactionsBtn);
 }

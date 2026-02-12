@@ -80,8 +80,7 @@ public class WighetPage {
 
     public static void afficheTextConsol(WebDriver driver){
         textchamps= driver.findElement(elementText2);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(elementText2));
+
         String textEle2;
 
         textEle2=textchamps.getText();

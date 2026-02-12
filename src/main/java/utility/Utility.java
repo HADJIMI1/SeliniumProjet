@@ -14,7 +14,7 @@ public class Utility {
 
     public static String getLocators(String keys) throws IOException {
 
-        FileInputStream file =new  FileInputStream("C:\\Users\\HP\\Desktop\\projetSeleniumForm\\src\\main\\java\\org\\app\\utility\\Locators.properties");
+        FileInputStream file =new  FileInputStream("C:\\Users\\HP\\Desktop\\projetSeleniumForm\\src\\main\\java\\Locators\\Locators.properties");
 
 
         Properties properties=new Properties();

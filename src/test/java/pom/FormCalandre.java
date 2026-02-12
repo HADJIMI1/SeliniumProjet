@@ -1,11 +1,11 @@
 package pom;
 
+import Data.DataUtility;
 import org.app.utility.Utility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import utilityData.DataUtility;
 
 import java.io.IOException;
 
@@ -69,14 +69,14 @@ public class FormCalandre {
     }
     public static void formPagePractise(WebDriver driver) throws IOException {
         NameTextPractise= driver.findElement(nametextpatrice);
-        NameTextPractise.sendKeys(DataUtility.getData("nom"));
+        NameTextPractise.sendKeys(DataUtility.getData("fristname"));
 
         LastTextPractise= driver.findElement(last_text_patrice);
-        LastTextPractise.sendKeys(DataUtility.getData("name"));
+        LastTextPractise.sendKeys(DataUtility.getData("lastename"));
 
 
         EmailPractise= driver.findElement(mail_Patrice);
-        EmailPractise.sendKeys(DataUtility.getData("email"));
+        EmailPractise.sendKeys(DataUtility.getData("Email"));
 
         cochebtn=driver.findElement(cocherbtn);
         Utility.BtnDecatchJavaScript(driver,cochebtn);
