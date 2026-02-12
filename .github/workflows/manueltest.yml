@@ -1,4 +1,4 @@
-name: Test Execution
+name: Selenium TestNG Tests
 
 on:
   workflow_dispatch:
@@ -6,20 +6,23 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Install JDk Java
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 22
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '22'
-      - name: Cache Maven packages
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-m2
+          distribution: temurin
+          java-version: 22
+          cache: maven
 
-      - name: run tests
-        run:  mvn clean test -Dsurefire.suiteXmlFiles=testNgParalelTread.xml
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Make mvnw executable
+        run: chmod +x mvnw
+
+      - name: Run TestNG tests
+        run: ./mvnw clean test "-Dsurefire.suiteXmlFiles=testNgParalelTread.xml"
